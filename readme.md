@@ -12,7 +12,7 @@ Um exemplo clássico de problema que pode ser solucionado utilizando hash e heap
      - Refazer a estrutura.
    - Caso contrário, ignorar o elemento e avançar para o próximo.
 
-# ENTRADA:
+# E:
 
 A entrada consiste de uma sequência de arquivos de texto nomeados de "input.txt" mais um arquivo de stopwords nomeado "stopwords.txt" que apresenta as palavras que devem ser desconsideradas pelo algoritmo na implementação da solução.
 
@@ -20,11 +20,12 @@ Os arquivos de texto do tipo "input.txt" devem seguir um padrão de nomenclatura
 
 `Exemplo`: quantidade de entradas(fora stopwords) = 2 - arquivos de entrada serão: "input1.txt" e "input2.txt".
 
-###
+No repositório do projeto encontra-se os dois textos utilizados para testes:
+["input1.txt"](dataset/input1.txt) e ["input2.txt"](dataset/input2.txt)
 
 ![entrada.png](imagem/entradas.png)
 
-# IMPLEMENTAÇÃO DA SOLUÇÃO:
+# Implementação:
 
 A solução foi implementada em três etapas principais: manipulação dos arquivos de entrada para tratamento das palavras, inserção na hash para contar a frequência que as palavras ocorrem e a obtenção das palavras mais frequentes utilizando uma estrutura de heap.
 
@@ -42,6 +43,8 @@ Alguns caracteres precisam de tratamentos específicos, mas a estratégia utiliz
 
 
 Além disso, é preciso verificar se as palavras são diferentes da lista de stopwords fornecida na entrada. Para isso, a solução utilizada compara a palavra de entrada da iteração corrente com um set que armazena as stopwords fornecidas. Palavras contidas na lista de stopwords não são inseridas na hash.
+
+O `unordered_set` utilizado para armazenar as stopwords é um contêiner da biblioteca padrão do C++ que funciona como um conjunto não ordenado de elementos. Dessa forma, garante-se que palavras não se repitam dentre a lista de stopwords.
 
 ## Inserção na hash
 
@@ -95,7 +98,7 @@ O algoritmo implementado segue a seguinte estrutura e funções:<p\>
 
 Vale ressaltar que a utilização de uma estrutura de heap garante uma otimização no custo para solucionar o problema. O problema poderia ser solucionado também utilizando um método de ordenação, por exemplo, mas o custo envolvido seria maior. 
 
-# SAÍDA
+# Saída
 
 ### A saída consiste nas TOP K palavras mais frequentes dentre os arquivos de entrada fornecidos.
 
@@ -106,7 +109,7 @@ Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.
 
 # Conclusão
 
-Portanto, de acordo com a proposta apresentada, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente. Além disso, utilizando uma estrutura de heap para obtenção dos k elementos também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor.
+Portanto, de acordo com a proposta apresentada, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente. Além disso, utilizando uma estrutura de heap para obtenção dos k elementos também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor (`O(nlogk)`) quando comparado a utilização de vetores associados a métodos de ordenação (`O(nlogn)`).
 
 # Compilação e execução
 
