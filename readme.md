@@ -12,7 +12,7 @@ Um exemplo clássico de problema que pode ser solucionado utilizando hash e heap
      - Refazer a estrutura.
    - Caso contrário, ignorar o elemento e avançar para o próximo.
 
-# E:
+# Entrada:
 
 A entrada consiste de uma sequência de arquivos de texto nomeados de "input.txt" mais um arquivo de stopwords nomeado "stopwords.txt" que apresenta as palavras que devem ser desconsideradas pelo algoritmo na implementação da solução.
 
