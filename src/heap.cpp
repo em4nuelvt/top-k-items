@@ -2,20 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-HeapPriorityQueue* createHeap(int capacity) {
-    HeapPriorityQueue* heap = (HeapPriorityQueue*)malloc(sizeof(HeapPriorityQueue));
+Heap* createHeap(int capacity) {
+    Heap* heap = (Heap*)malloc(sizeof(Heap));
     heap->capacity = capacity;
     heap->size = 0;
     heap->heap = (WordFrequency*)malloc(sizeof(WordFrequency) * (capacity + 1)); // Heap index starts from 1
     return heap;
 }
 
-void destroyHeap(HeapPriorityQueue* heap) {
+void destroyHeap(Heap* heap) {
     free(heap->heap);
     free(heap);
 }
 
-void insert(HeapPriorityQueue* heap, const char* word, int frequency) {
+void insert(Heap* heap, const char* word, int frequency) {
     if (heap->size < heap->capacity) {
         WordFrequency newEntry;
         newEntry.word = strdup(word);
@@ -34,11 +34,11 @@ void insert(HeapPriorityQueue* heap, const char* word, int frequency) {
     }
 }
 
-bool shouldInsert(HeapPriorityQueue* heap, int frequency) {
+bool shouldInsert(Heap* heap, int frequency) {
     return frequency > heap->heap[1].frequency;
 }
 
-void adjustHeap(HeapPriorityQueue* heap, int index) {
+void adjustHeap(Heap* heap, int index) {
     int parent = index / 2;
     int leftChild = index * 2;
     int rightChild = leftChild + 1;
@@ -59,9 +59,9 @@ void adjustHeap(HeapPriorityQueue* heap, int index) {
     }
 }
 
-void printHeap(HeapPriorityQueue* heap) {
+void printHeap(Heap* heap) {
      // Cria uma cópia do heap para não modificar a estrutura original
-    HeapPriorityQueue* heapCopy = createHeap(heap->capacity);
+    Heap* heapCopy = createHeap(heap->capacity);
     for (int i = 1; i <= heap->size; i++) {
         heapCopy->heap[i] = heap->heap[i];
     }

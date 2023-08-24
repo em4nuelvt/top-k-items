@@ -36,11 +36,40 @@ A partir dos arquivos de entrada, cada palavra é lida com a biblioteca `<fstrea
 - `removePunctuation()`: remove as pontuações das strings lidas.
 - `lowerString()`: converte os caracteres da palavra para minúsculo.
 
-Alguns caracteres precisam de tratamentos específicos, mas a estratégia utilizada como solução é substituir sempre os caracteres indesejados por caracteres de espaço.
+Alguns caracteres precisam de tratamentos específicos, mas a estratégia utilizada como solução é substituir sempre os caracteres indesejados por caracteres de espaço,como mostra a função a seguir:
 
-<img src="imagem/imagem2.png" alt="formatação caracteres" style="max-width: 50%; height: auto;">
+```cpp
 
+string removePunctuation(string word) {
+    
+    string cleanedWord;
+    size_t pos = 0;
+     //substituir esses caracteres esquisitos
+    while ((pos = word.find_first_of("”—", pos))!= std::string::npos) {
+        word.replace(pos, 3, " "); // Substitui por espaço
+        pos += 1; // Avança para evitar substituições em loop
+    }
+    for (size_t i = 0; i < word.length(); i++) {
+        char c = word[i];
+        if( ((c=='.'||c==','||c=='!'||c=='?'||c==':'||c==';')&& isalnum(word[i+1]))||
+            (c=='-'&&i==(word.length()-1))){
+            word[i]=' ';
+        }
+        c=word[i];
+        if(word[i]=='-'&&word[i+1]=='-'){
+            word[i]=' ';
+            word[i+1]=' ';
+        }
+        c = word[i];
+        if (!ispunct(c) || ((c == '-')) || c == '/' || c == '_') {
+            cleanedWord += c;
+        }
+        
+    }
+    return cleanedWord;
+}
 
+```
 
 Além disso, é preciso verificar se as palavras são diferentes da lista de stopwords fornecida na entrada. Para isso, a solução utilizada compara a palavra de entrada da iteração corrente com um set que armazena as stopwords fornecidas. Palavras contidas na lista de stopwords não são inseridas na hash.
 
@@ -137,17 +166,29 @@ Para organizar e obter as palavras mais frequentes armazenadas na estrutura hash
 
 
 
-
 <img src="imagem/MinHeap.jpg" alt="min-heap" style="max-width: 50%; height: auto;">
 
 
 <p style="text-align: justify">
 O algoritmo implementado segue a seguinte estrutura e funções:<p\>
 
+```cpp
+typedef struct {
+    char* word;
+    int frequency;
+} WordFrequency;
 
+```
 
+```cpp
+typedef struct {
+    WordFrequency* heap;
+    int size;
+    int capacity;
+} Heap;
 
-![imagem1](imagem/imagem1.png)
+```
+
 
 - `createHeap()`: aloca memória e inicializa a estrutura do heap, com capacidade máxima.
 - `insert()`: insere um novo elemento no heap e verifica se deve substituir o elemento na raiz caso tenha maior prioridade e realiza o reequilíbrio da árvore com `adjustHeap()`.
@@ -166,6 +207,7 @@ Vale ressaltar que a utilização de uma estrutura de heap garante uma otimizaç
 Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.txt), a saída apresentada foi: 
 
 ![saida.png](imagem/saida.png)
+
 
 
 # Conclusão

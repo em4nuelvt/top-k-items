@@ -59,21 +59,9 @@ void loadInputs(){
         file.open("dataset/input"+ to_string(aux)+".txt");
     }while(file);
 
-    
-/*     while(true){
-        file>>palavra;
-        if(file.fail()){
-            break;
-        }
-        trataPalavra(palavra);
-        if(!(isStopword(palavra,stopwords))){
-            insertMap(wordFrequence,palavra);
-        } 
-    } */
     file.close();
 
-    //int K = 20; // Tamanho da heap
-    HeapPriorityQueue* heap = createHeap(K);
+    Heap* heap = createHeap(K);
 
     for (const auto& entry : wordFrequence) {
         insert(heap, entry.first.c_str(), entry.second);
@@ -135,10 +123,10 @@ bool isStopword(string palavra, unordered_set <string> stopwords){
 }
 
 string removePunctuation(string word) {
+    
     string cleanedWord;
-
     size_t pos = 0;
-    //substituir esses caracteres esquisitos
+     //substituir esses caracteres esquisitos
     while ((pos = word.find_first_of("”—", pos))!= std::string::npos) {
         word.replace(pos, 3, " "); // Substitui por espaço
         pos += 1; // Avança para evitar substituições em loop

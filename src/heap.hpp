@@ -14,13 +14,13 @@ typedef struct {
     WordFrequency* heap;
     int size;
     int capacity;
-} HeapPriorityQueue;
+} Heap;
 
-HeapPriorityQueue* createHeap(int capacity);
-void destroyHeap(HeapPriorityQueue* heap);
-void insert(HeapPriorityQueue* heap, const char* word, int frequency);
-bool shouldInsert(HeapPriorityQueue* heap, int frequency);
-void adjustHeap(HeapPriorityQueue* heap, int index);
-void printHeap(HeapPriorityQueue* heap);
+Heap* createHeap(int capacity);
+void destroyHeap(Heap* heap);
+void insert(Heap* heap, const char* word, int frequency);
+bool shouldInsert(Heap* heap, int frequency);
+void adjustHeap(Heap* heap, int index);
+void printHeap(Heap* heap);
 
 #endif // HEAP_PRIORITY_QUEUE_H
