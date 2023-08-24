@@ -157,7 +157,7 @@ O algoritmo implementado segue a seguinte estrutura e funções:<p\>
 - `destroyHeap()`: libera a memória alocada.
 
 
-Vale ressaltar que a utilização de uma estrutura de heap garante uma otimização no custo para solucionar o problema. O problema poderia ser solucionado também utilizando um método de ordenação, por exemplo, mas o custo envolvido seria maior. 
+Vale ressaltar que a utilização de uma estrutura de heap garante uma otimização no custo para solucionar o problema. O problema poderia ser solucionado também utilizando um método de ordenação, por exemplo, mas o custo envolvido seria maior, uma vez que o custo médio envolvido para ordenar completamente uma lista seria O(nlogn) e o custo médio envolvido para manipulação da estrutura do heap é O(nlogk) em que k é a quantidade de elementos mais frequentes. Isso acontece devido à propriedade de construção e estruturação de um heap mínimo, como foi citado.   
 
 # Teste e apresentação da saída
 
@@ -170,7 +170,10 @@ Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.
 
 # Conclusão
 
-Portanto, de acordo com a proposta apresentada, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente. Além disso, utilizando uma estrutura de heap para obtenção dos k elementos também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor (`O(nlogk)`) quando comparado a utilização de vetores associados a métodos de ordenação (`O(nlogn)`).
+
+Portanto, de acordo com a proposta apresentada para encontrar os k elementos mais frequentes, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente, considerando que o custo envolvido para buscas nessa estrutura é O(1). Além disso, utilizando uma estrutura de heap para obtenção dos k elementos também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor (`O(nlogk)`) quando comparado a utilização de vetores associados a métodos de ordenação (`O(nlogn)`).
+
+
 
 # Compilação e execução
 

@@ -1,6 +1,6 @@
-#include "load.hpp"
 #ifndef HEAP_PRIORITY_QUEUE_HPP
 #define HEAP_PRIORITY_QUEUE_HPP
+#include "load.hpp"
 #include <vector>
 #include <cstring>
 #include <algorithm>

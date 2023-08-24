@@ -60,7 +60,7 @@ void adjustHeap(HeapPriorityQueue* heap, int index) {
 }
 
 void printHeap(HeapPriorityQueue* heap) {
-    // Cria uma cópia do heap para não modificar a estrutura original
+     // Cria uma cópia do heap para não modificar a estrutura original
     HeapPriorityQueue* heapCopy = createHeap(heap->capacity);
     for (int i = 1; i <= heap->size; i++) {
         heapCopy->heap[i] = heap->heap[i];
@@ -82,5 +82,8 @@ void printHeap(HeapPriorityQueue* heap) {
     }
 
     // Libera a memória do heap copiado
-    destroyHeap(heapCopy);
+    destroyHeap(heapCopy); 
+
+
+
 }
