@@ -25,12 +25,11 @@
     printMap(wordFrequence);
 
 } */
-void loadInputs(){
-    
+
+//lê os arquivos e inicializa a execução
+void loadInputs(){    
     string palavra;
     unordered_map<string,int> wordFrequence;    
-
-
 
     std::ifstream file("dataset/input.txt");
 

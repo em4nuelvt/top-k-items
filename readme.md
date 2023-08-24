@@ -54,9 +54,70 @@ O `unordered_map` é uma classe da biblioteca padrão do C++ que implementa uma 
 
 Para tratar colisões, o `unordered_map` usa técnicas como listas encadeadas para armazenar várias entradas que mapeiam para o mesmo índice.
 
-Entretanto, o C++ não especifica qual função hash o `unordered_map` deve usar. A implementação da função hash é deixada para a biblioteca padrão do compilador.
+O hash padrão usado em `std::unordered_map` em C++ é o objeto de função `std::hash<Key>`, onde `Key` é o tipo das chaves no mapa. Esse objeto de função tem especializações padrão para todos os tipos integrados, como int, char, bool, etc., e alguns outros tipos da biblioteca padrão, como std::string e std::thread. Para esses tipos, a função de hash retorna um valor size_t que representa o padrão de bits da chave. Por exemplo, para uma chave int, a função de hash simplesmente retorna a própria chave convertida para size_t.
 
-O compilador utilizado (g++ 11.3.0) utiliza a função hash padrão da biblioteca libstdc++. Para tipos de chave string, a função de hash opera com base nos caracteres da string usando uma função hash simples. A implementação exata pode variar entre versões, mas geralmente envolve somar ou combinar os códigos ASCII ou Unicode dos caracteres.
+Para outros tipos que não são integrados nem tipos da biblioteca padrão, como classes ou structs definidos pelo usuário, é necessário especializar `std::hash<Key>` para o seu tipo ou criar seu próprio objeto de função que implementa uma função de hash para esse tipo. Você pode então passar esse objeto de função como um parâmetro de template para `std::unordered_map`.
+
+A chance de colisão, que significa que duas chaves diferentes têm o mesmo valor de hash, depende da implementação da função de hash e do tamanho da tabela de hash. Geralmente, uma boa função de hash deve distribuir uniformemente as chaves pela tabela de hash e evitar aglomerações ou padrões. 
+
+A documentação da STL do C++ não especifica como as funções de hash são implementadas para diferentes tipos, então isso fica a cargo de cada fornecedor de compilador decidir (no caso, o gcc/g++).
+
+Por exemplo, no GCC, a função de hash para `std::string` é definida da seguinte forma:
+
+```cpp
+template<>
+struct hash<string>
+  : public __hash_base<size_t, string>
+{
+  size_t
+  operator()(const string& __s) const noexcept
+  { return std::_Hash_impl::hash(__s.data(), __s.length()); }
+};
+```
+
+Essa função chama uma função auxiliar `std::_Hash_impl::hash`, que é definida da seguinte forma:
+
+```cpp
+struct _Hash_impl
+{
+  static size_t
+  hash(const void* __ptr, size_t __clength,
+       size_t __seed = static_cast<size_t>(0xc70f6907UL))
+  {
+    // Semelhante ao hash murmur
+    const size_t __m = 0x5bd1e995;
+    const int __r = 24;
+    size_t __h = __seed ^ __clength;
+    const unsigned char* __data = static_cast<const unsigned char*>(__ptr);
+    for (; __clength >= sizeof(size_t); __data += sizeof(size_t), __clength -= sizeof(size_t))
+      {
+        size_t __k = *reinterpret_cast<const size_t*>(__data);
+        __k *= __m;
+        __k ^= __k >> __r;
+        __k *= __m;
+        __h *= __m;
+        __h ^= __k;
+      }
+    switch (__clength)
+      {
+      case 3:
+        __h ^= static_cast<size_t>(__data[2]) << 16;
+      case 2:
+        __h ^= static_cast<size_t>(__data[1]) << 8;
+      case 1:
+        __h ^= static_cast<size_t>(__data[0]);
+        __h *= __m;
+      };
+    // Faz algumas misturas finais
+    __h ^= __h >> 13;
+    __h *= __m;
+    __h ^= __h >> 15;
+    return __h;
+  }
+};
+```
+
+Essa função implementa uma variante do MurmurHash2, que é um algoritmo de hash rápido e bem conhecido, com boas propriedades de resistência a colisões e distribuição. Ela recebe um ponteiro para os dados, seu comprimento e um valor de semente opcional como parâmetros, e retorna um valor size_t como código de hash.
 
 A seguir uma representação de uma tabela hash em que as chaves(no caso nomes) são direcionadas para um endereço do vetor pela função de hash:
 
@@ -77,7 +138,7 @@ Para organizar e obter as palavras mais frequentes armazenadas na estrutura hash
 
 
 
-<img src="imagem/MinHeap.jpg" alt="min-heap" style="max-width: 100%; height: auto;">
+<img src="imagem/MinHeap.jpg" alt="min-heap" style="max-width: 50%; height: auto;">
 
 
 <p style="text-align: justify">
@@ -98,7 +159,7 @@ O algoritmo implementado segue a seguinte estrutura e funções:<p\>
 
 Vale ressaltar que a utilização de uma estrutura de heap garante uma otimização no custo para solucionar o problema. O problema poderia ser solucionado também utilizando um método de ordenação, por exemplo, mas o custo envolvido seria maior. 
 
-# Saída
+# Teste e apresentação da saída
 
 ### A saída consiste nas TOP K palavras mais frequentes dentre os arquivos de entrada fornecidos.
 
@@ -117,4 +178,4 @@ Portanto, de acordo com a proposta apresentada, as estruturas utilizadas permite
 | -----------------| -------------------------------- |
 | `make clean`     | Apaga a última compilação realizada contida na pasta build |
 | `make`           | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build |
-| `make run`       | Executa o
+| `make run`       | Executa ocódigo|
