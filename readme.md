@@ -154,7 +154,7 @@ A seguir uma representação de uma tabela hash em que as chaves(no caso nomes) 
 <img src="imagem/hash-table.png" alt="hash-table" style="max-width: 50%; height: auto;">
 
 
-<p style="text-align: justify">Vale ressaltar que uma estrutura de hash é uma ótima escolha para contagem de palavras por ter um custo de acesso constante O(1).<p\>
+<p style="text-align: justify">Vale ressaltar que uma estrutura de hash é uma ótima escolha para contagem de palavras por ter um custo de acesso constante O(1). Utilizar uma estrutura como um vetor convencional afetaria significativamente o custo do algoritmo por ser necessário percorrer todo o vetor para fazer buscas e ajustes nos dados armazenados.<p\>
 
 
 
