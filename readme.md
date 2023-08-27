@@ -226,6 +226,21 @@ Ao analisar em conjunto os processos de tratamento das palavras, a inserção na
 | `make run`       | Executa ocódigo|
 
 
+
+# Especificações
+
+| Componentes            | Detalhes                                                                                         |
+| -----------------------| -----------------------------------------------------------------------------------------------  |
+|  `Processador`         | Intel© Core™ i7-4500U CPU @ 1.80GHz × 2                                            |
+|  `RAM Instalada`       | 8.0 GB (Utilizável: 7.6 GB)                                                                      |
+|  `Tipo de Sistema`     | Sistema Operacional de 64 bits, processador baseado em x64                                       |
+|  `Sistema Operacional` | Linux Mint 21.1 Cinnamon                                            |
+|`Compilador`| GCC - g++ (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0  |
+
+
+
+
+
 # Referências
 GeeksforGeeks. Difference between Min Heap and Max Heap. Disponível em: https://www.geeksforgeeks.org/difference-between-min-heap-and-max-heap/.
 
