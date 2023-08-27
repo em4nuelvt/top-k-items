@@ -33,12 +33,6 @@ void loadInputs(){
 
     std::ifstream file("dataset/input.txt");
 
-    // Verifique se o arquivo foi aberto com sucesso
-    if (!file.is_open()) {
-        std::cerr << "Não foi possível abrir o arquivo." << std::endl;
-        return; // Encerre o programa com um código de erro
-    }
-
     unordered_set<string> stopwords;
     lerStopwords(stopwords);
 
