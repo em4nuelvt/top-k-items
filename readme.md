@@ -212,8 +212,12 @@ Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.
 
 # Conclusão
 
+Portanto, de acordo com a proposta apresentada para encontrar os k elementos mais frequentes, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente, considerando que o custo envolvido para buscas nessa estrutura é O(1). Além disso, utilizando uma estrutura de heap para obtenção dos k elementos, também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor (`O(nlogk)`) quando comparado à utilização de vetores associados a métodos de ordenação (`O(nlogn)`).
 
-Portanto, de acordo com a proposta apresentada para encontrar os k elementos mais frequentes, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente, considerando que o custo envolvido para buscas nessa estrutura é O(1). Além disso, utilizando uma estrutura de heap para obtenção dos k elementos também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor (`O(nlogk)`) quando comparado a utilização de vetores associados a métodos de ordenação (`O(nlogn)`).
+Ao analisar em conjunto os processos de tratamento das palavras, a inserção na hash e o gerenciamento do heap, é evidente que essa abordagem oferece uma maneira otimizada de identificar as palavras mais frequentes. A combinação dessas etapas proporciona uma solução equilibrada, que alia simplicidade com eficiência, permitindo que a tarefa de encontrar os k elementos mais valiosos seja realizada de maneira rápida e precisa. Dessa maneira, a implementação demonstra um cuidadoso planejamento das estruturas utilizadas, tornando-se uma solução robusta para o problema de seleção dos top k itens.
+
+
+
 
 
 
