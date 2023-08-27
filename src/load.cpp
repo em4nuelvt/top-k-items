@@ -1,31 +1,6 @@
 #include "load.hpp"
 #define K 20
 
-
-/* void readTest(){
-    ifstream arquivo;
-    arquivo.open("dataset/input.txt");
-
-    unordered_map<string,int> wordFrequence;
-
-    unordered_set <string> stopwords;
-    lerStopwords(stopwords);
-
-    string auxiliar;
-
-    while(true){
-        arquivo>>auxiliar;
-        if(arquivo.fail())
-            break;
-        trataPalavra(auxiliar);
-        if(!isStopword(auxiliar,stopwords)){
-            insertMap(wordFrequence,auxiliar);
-        }
-    }
-    printMap(wordFrequence);
-
-} */
-
 //lê os arquivos e inicializa a execução
 void loadInputs(){    
     string palavra;
@@ -162,5 +137,4 @@ void readMultiple(){
         file.open("dataset/input"+ to_string(aux)+".txt");
     }while(file);
 
-    
 }

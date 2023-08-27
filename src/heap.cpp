@@ -83,7 +83,4 @@ void printHeap(Heap* heap) {
 
     // Libera a memória do heap copiado
     destroyHeap(heapCopy); 
-
-
-
 }
