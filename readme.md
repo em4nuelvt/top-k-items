@@ -217,10 +217,6 @@ Portanto, de acordo com a proposta apresentada para encontrar os k elementos mai
 Ao analisar em conjunto os processos de tratamento das palavras, a inserção na hash e o gerenciamento do heap, é evidente que essa abordagem oferece uma maneira otimizada de identificar as palavras mais frequentes. A combinação dessas etapas proporciona uma solução equilibrada, que alia simplicidade com eficiência, permitindo que a tarefa de encontrar os k elementos mais valiosos seja realizada de maneira rápida e precisa. Dessa maneira, a implementação demonstra um cuidadoso planejamento das estruturas utilizadas, tornando-se uma solução robusta para o problema de seleção dos top k itens.
 
 
-
-
-
-
 # Compilação e execução
 
 | Comando          | Função                           |
@@ -228,3 +224,19 @@ Ao analisar em conjunto os processos de tratamento das palavras, a inserção na
 | `make clean`     | Apaga a última compilação realizada contida na pasta build |
 | `make`           | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build |
 | `make run`       | Executa ocódigo|
+
+
+# Referências
+GeeksforGeeks. Difference between Min Heap and Max Heap. Disponível em: https://www.geeksforgeeks.org/difference-between-min-heap-and-max-heap/.
+
+TechTudo. O que é hash?. Disponível em: https://www.techtudo.com.br/noticias/2012/07/o-que-e-hash.ghtml.
+
+Stack Overflow. What is the default hash function used in C++ std::unordered_map?. Disponível em: https://stackoverflow.com/questions/19411742/what-is-the-default-hash-function-used-in-c-stdunordered-map.
+
+GeeksforGeeks. Binary Heap. Disponível em: https://www.geeksforgeeks.org/binary-heap/.
+
+# Autor
+
+Emanuel Vieira Tavares | Engenharia da Computação ~ CEFET-MG
+
+[![Contato via Gmail](https://img.shields.io/badge/Contato-via%20Gmail-red)](mailto:emanuelvtcefet@gmail.com)
