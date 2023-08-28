@@ -1,5 +1,5 @@
 #include "load.hpp"
-#define K 20
+
 
 //lê os arquivos e inicializa a execução
 void loadInputs(){    
