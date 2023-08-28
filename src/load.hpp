@@ -7,12 +7,12 @@
 #include <unordered_set>
 #include <unordered_map>
 #include "heap.hpp"
+#define K 20
 
 using namespace std;
 
 void lerStopwords(unordered_set <string> &stopwords);
 void readMultiple();
-//void readTest();
 void loadInputs();
 string removePunctuation(string word);
 bool isStopword(string palavra, unordered_set <string> stopwords);

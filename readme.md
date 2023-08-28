@@ -25,6 +25,9 @@ No repositório do projeto encontra-se os dois textos utilizados para testes:
 
 ![entrada.png](imagem/entradas.png)
 
+
+Além disso, é importante destacar que o valor de K é definido como uma constante no próprio código no arquivo de cabeçalho [`load.hpp`](src/load.hpp). Para a execução de testes e apreentação da saída o valor de K utilizado será 20.
+
 # Implementação:
 
 A solução foi implementada em três etapas principais: manipulação dos arquivos de entrada para tratamento das palavras, inserção na hash para contar a frequência que as palavras ocorrem e a obtenção das palavras mais frequentes utilizando uma estrutura de heap.
@@ -202,15 +205,18 @@ Vale ressaltar que a utilização de uma estrutura de heap garante uma otimizaç
 
 # Teste e apresentação da saída
 
-### A saída consiste nas TOP K palavras mais frequentes dentre os arquivos de entrada fornecidos.
+A saída consiste nas TOP K palavras mais frequentes dentre os arquivos de entrada fornecidos.
 
-Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.txt), a saída apresentada foi: 
+Os testes foram realizados individualmente com dois arquivos de texto disponibilizados juntamente ao problema, entretanto, o teste aqui apresentado consiste na junção dos dois arquivos de texto em um mesmo teste. É importante lembrar que o algoritmo realiza a leitura de vários arquivos desde que todos esses atendam ao padrão de nomenclatura (input1.txt, input2.txt, input3.txt ...).
+
+Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.txt), para K definido como uma constante de valor 20, os 20 primeiros elementos são apresentados na saída de exemplo. A saída apresentada foi: 
 
 ![saida.png](imagem/saida.png)
 
+Como o exemplo exibe, cada palavra é acompanhada da sua frequência dentre os arquivos de texto fornecidos como entrada.
 
 
-# Conclusão
+# Conclusão e Análise de Custo Computacional
 
 Portanto, de acordo com a proposta apresentada para encontrar os k elementos mais frequentes, as estruturas utilizadas permitem uma solução viável para o problema. A contagem de frequência com uma estrutura de hash permite inserir e buscar os dados de forma eficiente, considerando que o custo envolvido para buscas nessa estrutura é O(1). Além disso, utilizando uma estrutura de heap para obtenção dos k elementos, também permite uma forma mais eficiente de organizar os dados sem precisar ordenar a estrutura com um método de ordenação propriamente dito. Dessa forma, a implementação visa uma solução do problema que envolve um custo computacional menor (`O(nlogk)`) quando comparado à utilização de vetores associados a métodos de ordenação (`O(nlogn)`).
 
