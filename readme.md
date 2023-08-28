@@ -249,6 +249,8 @@ Ao analisar em conjunto os processos de tratamento das palavras, a inserção na
 
 
 # Referências
+
+
 GeeksforGeeks. Difference between Min Heap and Max Heap. Disponível em: https://www.geeksforgeeks.org/difference-between-min-heap-and-max-heap/.
 
 TechTudo. O que é hash?. Disponível em: https://www.techtudo.com.br/noticias/2012/07/o-que-e-hash.ghtml.
