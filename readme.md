@@ -215,6 +215,7 @@ Testando com as entradas [A semana](dataset/input2.txt) e [Dom Casmurro](input2.
 
 Como o exemplo exibe, cada palavra é acompanhada da sua frequência dentre os arquivos de texto fornecidos como entrada.
 
+Observação: Um arquivo de saída extra é apresentado após a execução. O arquivo `output.txt` é gerado após a execução do algoritmo e apresenta todas as palavras armazenadas no unordered_map. 
 
 # Conclusão e Análise de Custo Computacional
 
