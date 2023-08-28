@@ -94,7 +94,7 @@ A chance de colisão, que significa que duas chaves diferentes têm o mesmo valo
 
 A documentação da STL do C++ não especifica como as funções de hash são implementadas para diferentes tipos, então isso fica a cargo de cada fornecedor de compilador decidir (no caso, o gcc/g++).
 
-Por exemplo, no GCC, a função de hash para `std::string` é definida da seguinte forma:
+Por exemplo, no gcc , a função de hash para `std::string` é definida da seguinte forma:
 
 ```cpp
 template<>
@@ -107,7 +107,7 @@ struct hash<string>
 };
 ```
 
-Essa função chama uma função auxiliar `std::_Hash_impl::hash`, que é definida da seguinte forma:
+Essa função chama uma função auxiliar `std::_Hash_impl::hash`, que é definida:
 
 ```cpp
 struct _Hash_impl
@@ -149,7 +149,7 @@ struct _Hash_impl
 };
 ```
 
-Essa função implementa uma variante do MurmurHash2, que é um algoritmo de hash rápido e bem conhecido, com boas propriedades de resistência a colisões e distribuição. Ela recebe um ponteiro para os dados, seu comprimento e um valor de semente opcional como parâmetros, e retorna um valor size_t como código de hash.
+Essa função implementa uma variante do MurmurHash2. Ela recebe um ponteiro para os dados, seu comprimento e um valor de semente opcional como parâmetros, e retorna um valor size_t como código de hash. 
 
 A seguir uma representação de uma tabela hash em que as chaves(no caso nomes) são direcionadas para um endereço do vetor pela função de hash:
 
